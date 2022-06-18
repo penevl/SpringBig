@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Sat Jun 18 16:38:19 EEST 2022:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0181-7709-2ede-00000214a110 
+on database directory memory:/home/elduko/IdeaProjects/SpringBig/a3235a5b-955c-4446-8382-27c50b82e437 with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@251a69d7 
+Loaded from file:/home/elduko/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
+java.vendor=Amazon.com Inc.
+java.runtime.version=17.0.3+6-LTS
+user.dir=/home/elduko/IdeaProjects/SpringBig
+os.name=Linux
+os.arch=amd64
+os.version=5.17.5-76051705-generic
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
