@@ -1,5 +1,6 @@
 package com.github.penevl;
 
+import com.github.penevl.user.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
