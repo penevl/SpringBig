@@ -1,5 +1,6 @@
 package com.github.penevl.user;
 
+import com.github.javafaker.Faker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,9 +20,18 @@ public class UserController {
         return userService.getUser(id);
     }
 
+    @RequestMapping(method = RequestMethod.PATCH,value = "/user/{id}/{oldPasswd}/{newPasswd}")
+    public int changePasswd(@PathVariable int id,@PathVariable String oldPasswd,@PathVariable String newPasswd){
+        return userService.changePasswd(id,oldPasswd,newPasswd);
+    }
+
     @RequestMapping("/initUser")
     public void initUser(){
-        userService.addUser(new User("TestUser","testUser@gmail.com","root",886631063));
+        Faker faker = new Faker();
+        userService.addUser(new User(faker.name().username(),faker.name().firstName() + "@gmail.com","cuck",faker.phoneNumber().phoneNumber()));
+        userService.addUser(new User(faker.name().username(),faker.name().firstName() + "@gmail.com","cunny",faker.phoneNumber().phoneNumber()));
+        userService.addUser(new User(faker.name().username(),faker.name().firstName() + "@gmail.com","root",faker.phoneNumber().phoneNumber()));
+        userService.addUser(new User(faker.name().username(),faker.name().firstName() + "@gmail.com","pussy",faker.phoneNumber().phoneNumber()));
     }
 
 }

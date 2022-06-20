@@ -16,4 +16,16 @@ public class UserService {
     public User getUser(int id) {
         return userRepository.findById(id).get();
     }
+
+    public int changePasswd(int id, String oldPasswd, String newPasswd){
+        User u = userRepository.findById(id).get();
+        if(u.getPassword().equals(oldPasswd)){
+            u.setPassword(newPasswd);
+            userRepository.save(u);
+            return 0;
+        }else{
+            return 1;
+        }
+    }
+
 }
