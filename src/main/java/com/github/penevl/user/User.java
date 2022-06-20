@@ -4,9 +4,11 @@ import com.github.penevl.product.Product;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
 
+@Table(name = "users")
 @Entity
 public class User {
 
@@ -15,8 +17,7 @@ public class User {
     String name;
     String email;
     String password;
-    int phone;
-
+    long phone;
     public int getId() {
         return id;
     }
@@ -49,7 +50,7 @@ public class User {
         this.password = password;
     }
 
-    public int getPhone() {
+    public long getPhone() {
         return phone;
     }
 
@@ -57,25 +58,14 @@ public class User {
         this.phone = phone;
     }
 
-    public List<Product> getCart() {
-        return cart;
-    }
-
-    public void setCart(List<Product> cart) {
-        this.cart = cart;
-    }
-
-    List<Product> cart = new ArrayList<>();
-
     public User(){}
 
-    public User(int id, String name, String email, String password, int phone, List<Product> cart) {
+    public User(int id, String name, String email, String password, long phone) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
         this.phone = phone;
-        this.cart = cart;
     }
 
 
