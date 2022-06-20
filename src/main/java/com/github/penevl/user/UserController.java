@@ -20,9 +20,14 @@ public class UserController {
         return userService.getUser(id);
     }
 
-    @RequestMapping(method = RequestMethod.PATCH,value = "/user/{id}/{oldPasswd}/{newPasswd}")
+    @RequestMapping(method = RequestMethod.PATCH,value = "/user/passChange/{id}/{oldPasswd}/{newPasswd}")
     public int changePasswd(@PathVariable int id,@PathVariable String oldPasswd,@PathVariable String newPasswd){
         return userService.changePasswd(id,oldPasswd,newPasswd);
+    }
+
+    @RequestMapping(method = RequestMethod.PATCH,value = "/user/nameChange/{id}/{passwd}/{newName}")
+    public int changeName(@PathVariable int id,@PathVariable String passwd,@PathVariable String newName){
+        return userService.changeName(id,passwd,newName);
     }
 
     @RequestMapping("/initUser")
