@@ -18,10 +18,21 @@ public class UserService {
     }
 
     public int changePasswd(int id, String oldPasswd, String newPasswd){
-        User u = userRepository.findById(id).get();
-        if(u.getPassword().equals(oldPasswd)){
-            u.setPassword(newPasswd);
-            userRepository.save(u);
+        User user = userRepository.findById(id).get();
+        if(user.getPassword().equals(oldPasswd)){
+            user.setPassword(newPasswd);
+            userRepository.save(user);
+            return 0;
+        }else{
+            return 1;
+        }
+    }
+
+    public int changeName(int id, String passwd, String newName){
+        User user = userRepository.findById(id).get();
+        if(user.getPassword().equals(passwd)){
+            user.setName(newName);
+            userRepository.save(user);
             return 0;
         }else{
             return 1;
