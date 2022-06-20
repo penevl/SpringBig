@@ -21,7 +21,7 @@ public class UserController {
 
     @RequestMapping("/initUser")
     public void initUser(){
-        userService.addUser(new User(0,"TestUser","testUser@gmail.com","root",886631063));
+        userService.addUser(new User("TestUser","testUser@gmail.com","root",886631063));
     }
 
 }
