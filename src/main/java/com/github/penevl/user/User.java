@@ -2,9 +2,7 @@ package com.github.penevl.user;
 
 import com.github.penevl.product.Product;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +11,7 @@ import java.util.List;
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
     String name;
     String email;
@@ -60,7 +59,7 @@ public class User {
 
     public User(){}
 
-    public User(int id, String name, String email, String password, long phone) {
+    public User(String name, String email, String password, long phone) {
         this.id = id;
         this.name = name;
         this.email = email;
