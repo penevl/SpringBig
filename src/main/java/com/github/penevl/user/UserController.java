@@ -35,6 +35,11 @@ public class UserController {
         return userService.changeEmail(id,passwd,newEmail);
     }
 
+    @RequestMapping(method = RequestMethod.PATCH,value = "/user/phoneChange/{id}/{passwd}/{newPhone}")
+    public int changePhone(@PathVariable int id,@PathVariable String passwd,@PathVariable String newPhone){
+        return userService.changePhone(id,passwd,newPhone);
+    }
+
     @RequestMapping("/initUser")
     public void initUser(){
         Faker faker = new Faker();

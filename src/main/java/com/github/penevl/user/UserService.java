@@ -50,4 +50,14 @@ public class UserService {
         }
     }
 
+    public int changePhone(int id, String passwd, String newPhone) {
+        User user = userRepository.findById(id).get();
+        if(user.getPassword().equals(passwd)){
+            user.setPhone(newPhone);
+            userRepository.save(user);
+            return 0;
+        }else{
+            return 1;
+        }
+    }
 }
