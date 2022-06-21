@@ -30,6 +30,11 @@ public class UserController {
         return userService.changeName(id,passwd,newName);
     }
 
+    @RequestMapping(method = RequestMethod.PATCH,value = "/user/emailChange/{id}/{passwd}/{newEmail}")
+    public int changeEmail(@PathVariable int id,@PathVariable String passwd,@PathVariable String newEmail){
+        return userService.changeEmail(id,passwd,newEmail);
+    }
+
     @RequestMapping("/initUser")
     public void initUser(){
         Faker faker = new Faker();

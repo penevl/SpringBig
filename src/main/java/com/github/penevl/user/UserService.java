@@ -39,4 +39,15 @@ public class UserService {
         }
     }
 
+    public int changeEmail(int id, String passwd, String newEmail){
+        User user = userRepository.findById(id).get();
+        if(user.getPassword().equals(passwd)){
+            user.setEmail(newEmail);
+            userRepository.save(user);
+            return 0;
+        }else{
+            return 1;
+        }
+    }
+
 }
