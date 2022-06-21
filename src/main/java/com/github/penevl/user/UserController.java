@@ -40,6 +40,11 @@ public class UserController {
         return userService.changePhone(id,passwd,newPhone);
     }
 
+    @RequestMapping(method = RequestMethod.DELETE,value = "/user/{id}/{passwd}")
+    public int deleteUser(@PathVariable int id,@PathVariable String passwd){
+        return userService.deleteUser(id,passwd);
+    }
+
     @RequestMapping("/initUser")
     public void initUser(){
         Faker faker = new Faker();
