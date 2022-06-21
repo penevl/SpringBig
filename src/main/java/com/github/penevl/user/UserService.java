@@ -3,6 +3,8 @@ package com.github.penevl.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.NoSuchElementException;
+
 @Service
 public class UserService {
 
@@ -14,7 +16,10 @@ public class UserService {
     }
 
     public User getUser(int id) {
-        return userRepository.findById(id).get();
+        try{return  userRepository.findById(id).get();
+        }catch (NoSuchElementException e){
+            return new User();
+        }
     }
 
     public int changePasswd(int id, String oldPasswd, String newPasswd){
