@@ -60,4 +60,13 @@ public class UserService {
             return 1;
         }
     }
+
+    public int deleteUser(int id, String passwd) {
+        if(userRepository.findById(id).get().getPassword().equals(passwd)){
+            userRepository.deleteById(id);
+            return 0;
+        }else {
+            return 1;
+        }
+    }
 }
