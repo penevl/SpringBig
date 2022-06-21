@@ -67,6 +67,11 @@ public class UserService {
     }
 
     public int deleteUser(int id, String passwd) {
+        try{
+            userRepository.findById(id).get();
+        }catch (NoSuchElementException e){
+            return 2;
+        }
         if(userRepository.findById(id).get().getPassword().equals(passwd)){
             userRepository.deleteById(id);
             return 0;
